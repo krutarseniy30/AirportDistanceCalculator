@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Функция расчета расстояния и добавление названия аэропортов
+    // Функция расчета расстояния
     async function calculateDistance() {
         if (points.length !== 2) return alert("Необходимо выбрать ровно две точки!");
 
@@ -48,9 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify({
                 start: [points[0].lat, points[0].lng],
-                end: [points[1].lat, points[1].lng],
-                startAirport: 'Аэропорт Берлина',
-                endAirport: 'Аэропорт Токио'
+                end: [points[1].lat, points[1].lng]
             })
         })
         .then(response => response.json())
