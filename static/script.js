@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Координаты аэропортов
     const berlin = [52.36667, 13.503333];
-    const tokyo = [35.773212, 140.38744];
+    const tokyo = [35.5494, 139.7798];
 
     // Добавление маркеров для аэропортов
     L.marker(berlin).addTo(map)
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Функция расчета расстояния
+    // Функция расчета расстояния и добавление названия аэропортов
     async function calculateDistance() {
         if (points.length !== 2) return alert("Необходимо выбрать ровно две точки!");
 
