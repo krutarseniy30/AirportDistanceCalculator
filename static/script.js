@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }).addTo(map);
 
     // Координаты аэропортов
-    const berlin = [52.5200, 13.4050];
-    const tokyo = [35.6895, 139.6917];
+    const berlin = [52.36667, 13.503333];
+    const tokyo = [35.773212, 140.38744];
 
     // Добавление маркеров для аэропортов
     L.marker(berlin).addTo(map)
