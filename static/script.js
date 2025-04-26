@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Функция расчета расстояния и добавление названия аэропортов
+    // Функция расчета расстояния
     async function calculateDistance() {
         if (points.length !== 2) return alert("Необходимо выбрать ровно две точки!");
 
