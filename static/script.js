@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const tokyo = [35.5494, 139.7798];
 
     // Добавление маркеров для аэропортов
-    L.marker(berlin).addTo(map)
+    const berlinMarker = L.marker(berlin).addTo(map)
         .bindPopup('Аэропорт Берлина')
         .openPopup();
-    L.marker(tokyo).addTo(map)
+    const tokyoMarker = L.marker(tokyo).addTo(map)
         .bindPopup('Аэропорт Токио')
         .openPopup();
 
@@ -20,8 +20,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let markers = []; // Хранение маркеров
     let line = null; // Хранение линии
 
-    // Клик по карте добавляет точку
-    map.on("click", e => {
+    // Клик по маркерам добавляет точку
+    berlinMarker.on("click", e => {
+        if (points.length === 2) return; // Ограничиваем выбор до двух точек
+        
+        points.push(e.latlng);
+        const marker = L.circleMarker([points[points.length - 1].lat, points[points.length - 1].lng])
+            .bindTooltip(`Координаты: (${points[points.length - 1].lat}, ${points[points.length - 1].lng})`)
+            .addTo(map);
+        markers.push(marker);
+
+        if (points.length === 2) {
+            // Рисуем линию между двумя точками
+            line = L.polyline(points, {color: 'red'}).addTo(map);
+        }
+    });
+
+    tokyoMarker.on("click", e => {
         if (points.length === 2) return; // Ограничиваем выбор до двух точек
         
         points.push(e.latlng);
