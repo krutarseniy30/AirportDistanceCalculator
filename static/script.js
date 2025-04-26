@@ -73,27 +73,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => console.error('Ошибка:', err));
     }
 
-    // Функция для удаления всех маркеров и линии
-    function clearMarkers() {
-        points = [];
-        markers.forEach(marker => map.removeLayer(marker));
-        markers = [];
-        if (line) {
-            map.removeLayer(line);
-            line = null;
-        }
-        document.getElementById('result').innerText = '';
-    }
-
     // Добавляем кнопку для запуска функции расчета
     const button = document.createElement('button');
     button.textContent = 'Рассчитать расстояние';
     button.onclick = calculateDistance;
     document.body.appendChild(button);
 
-    // Добавляем кнопку для очистки маркеров
-    const clearButton = document.createElement('button');
-    clearButton.textContent = 'Очистить маркеры';
-    clearButton.onclick = clearMarkers;
-    document.body.appendChild(clearButton);
 });
